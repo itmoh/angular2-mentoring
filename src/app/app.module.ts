@@ -1,6 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import {
 	NgModule,
 	ApplicationRef
@@ -27,18 +25,9 @@ import { NoContentComponent } from './pages/no-content';
 import { HeaderModule, FooterModule } from './core/components';
 
 // Pages
-import { HomeModule } from './pages/home';
-import { PageOneModule } from  './pages/page-one';
-import { PageTwoModule } from  './pages/page-two';
-
-// Services
-
-import { TodoService } from './core/services';
-
-// Application wide providers
-const APP_PROVIDERS = [
-	TodoService
-];
+import { CourcesModule } from './pages/courses';
+import { CourseDetailModule } from './pages/course-detail';
+import { LoginModule } from './pages/login';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -51,18 +40,15 @@ const APP_PROVIDERS = [
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
-		FormsModule,
-		HttpModule,
 		RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
 		HeaderModule,
 		FooterModule,
-		HomeModule,
-		PageOneModule,
-		PageTwoModule
+		CourcesModule,
+		CourseDetailModule,
+		LoginModule
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
 		ENV_PROVIDERS,
-		APP_PROVIDERS
 	]
 })
 export class AppModule {

@@ -1,9 +1,12 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-import { PageOneComponent }    from './page-one.component';
+import { CourseDetailComponent } from './course-detail.component';
 
 // Route Configuration
 const pageOneRoutes: Routes = [
-	{ path: 'pageone', component: PageOneComponent },
+	{ 
+		path: 'course-detail', 
+		component: CourseDetailComponent
+	},
 ];
 
 export const routes = RouterModule.forChild(pageOneRoutes);

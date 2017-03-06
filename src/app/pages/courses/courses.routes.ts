@@ -1,9 +1,12 @@
 ﻿import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent }    from './home.component';
+import { CoursesComponet }    from './courses.component';
 
 // Route Configuration
 const homeRoutes: Routes = [
-	{ path: 'home', component: HomeComponent },
+	{
+		path: 'courses',
+		component: CoursesComponet
+	},
 ];
 
 export const routes = RouterModule.forChild(homeRoutes);

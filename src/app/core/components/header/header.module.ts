@@ -1,9 +1,14 @@
 ﻿import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 
+import { HeaderComponent } from './header.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+
 @NgModule({
-	declarations: [HeaderComponent],
+	declarations: [
+		HeaderComponent,
+		UserInfoComponent,
+	],
 	imports: [RouterModule],
 	exports: [HeaderComponent]
 })
