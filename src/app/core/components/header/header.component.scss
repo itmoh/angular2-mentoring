@@ -1,17 +1,19 @@
 @import "../../../styles/variables/colors.scss";
 
 .main-navbar {
-	height: 60px;
+	height: 5em;
 	background-color: $c-primary;
 	color: $white;
+	padding: 1em 0;
+
+	&__logo {
+		display: inline-block;
+		width: 2em;
+	}
+
+	&__logoTitle {
+		line-height: 1;
+		font-size: 1.6rem;
+	}
 }
 
-.logo {
-	float: left;
-	padding-top: 10px;
-}
-
-.logo-title {
-	line-height: 1;
-	font-size: 1.6rem;
-}

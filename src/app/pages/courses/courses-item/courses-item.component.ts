@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+
+import { ICourse } from '../../../core/entities';
 
 @Component({
 	selector: 'courses-item',
@@ -6,4 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 	encapsulation: ViewEncapsulation.None
 })
 export class CoursesItemComponent {
+	@Input('course')
+	course: ICourse;
+	
 }

@@ -1,13 +1,18 @@
-export class Course {
-	public title: string;
-	public length: number;
-	public date: Date;
-	public description: string;
+export interface ICourse {
+	id: string;
+	title: string;
+	duration: number;
+	date: Date;
+	description: string;
+}
 
-	constructor(title: string, length: number, date: Date, description: string) {
-		this.title = title;
-		this.length = length;
-		this.date = date;
-		this.description = description;
+export class Course implements ICourse {
+	constructor(
+		public id: string,
+		public title: string,
+		public duration: number,
+		public date: Date,
+		public description: string
+	) {
 	}
 }

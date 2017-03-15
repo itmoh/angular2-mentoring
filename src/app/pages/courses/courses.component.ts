@@ -1,16 +1,31 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { Course } from '../../core/entities';
+import { ICourse } from '../../core/entities';
 
 @Component({
 	selector: 'courses',
 	encapsulation: ViewEncapsulation.None,
-	template: require('./courses.template.html')
+	template: require('./courses.template.html'),
+	styles: [
+		require('./courses.component.scss')
+	],
 })
 export class CoursesComponet {
-	private courses: Course[];
+	private courses: ICourse[];
 
 	constructor() {
-		this.courses = [];
+		this.courses = [{
+			id: '1',
+			title: 'test meating',
+			duration: 30,
+			date: new Date(),
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac finibus nibh, in imperdiet odio. Cras eu turpis vitae nisl bibendum tempor. Nunc ipsum neque, euismod a dolor in, viverra suscipit nunc. Duis dignissim mi at scelerisque sodales. In molestie diam vel tincidunt viverra. Donec ac sodales mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+		}, {
+			id: '2',
+			title: 'test mentoring',
+			duration: 120,
+			date: new Date(),
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac finibus nibh, in imperdiet odio. Cras eu turpis vitae nisl bibendum tempor. Nunc ipsum neque, euismod a dolor in, viverra suscipit nunc. Duis dignissim mi at scelerisque sodales. In molestie diam vel tincidunt viverra. Donec ac sodales mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+		}];
 	}
 }
