@@ -1,0 +1,27 @@
+<div class="courses-toolbox row">
+	<div class="col-6">
+		<div class="input-group">
+			<input
+				type="text"
+				class="form-control"
+				[(ngModel)]="searchQuery"
+			>
+			<span class="input-group-btn">
+				<button 
+					class="btn btn-default"
+					type="button"
+					(click)="searchClick()"
+				>
+					search
+				</button>
+			</span>
+		</div>
+	</div>
+	<div class="col-3"></div>
+	<div class="col-3">
+		<button
+			class="btn btn-primary courses-toolbox__addCourse"
+			(click)="addCourseClick()"
+		>Add course</button>
+	</div>
+</div>

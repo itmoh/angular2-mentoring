@@ -1,13 +1,25 @@
-<article class="courses-item">
-    <div class="courses-item__header">
-        <h3 class="courses-item__title">{{ course.title }}</h3>
-        <span class="courses-item__duration">{{ course.duration }}m</span>
-        <span class="courses-item__date">{{ course.date | date:'shortDate' }}</span>
+<article class="courses-item row">
+    <div class="col-md-10">
+        <div class="courses-item__header">
+            <h3 class="courses-item__title">
+                {{ course.title }}
+                <span class="courses-item__duration">{{ course.duration }}m</span>
+            </h3>
+            <span class="courses-item__date">{{ course.date | date:'shortDate' }}</span>
+        </div>
+        <p class="courses-item__body">
+            {{ course.description }}
+        </p>
     </div>
-    <p class="courses-item__body">
-        {{ course.description }}
-    </p>
-    <div class="courses-item__tools">
-        <button class="btn btn-primary text-uppercase" type="button">edit course</button>
-        <button class="btn btn-danger text-uppercase" type="button">delete</button></div>
+    <div class="courses-item__tools col-md-2">
+        <button
+            class="btn btn-primary text-uppercase col-md-12 courses-item__toolsEditButton"
+            type="button"
+        >edit course</button>
+        <button
+            class="btn btn-danger text-uppercase col-md-12 courses-item__toolsDeleteButton"
+            type="button"
+            (click)="deleteClick()"
+        >delete</button>
+    </div>
 </article>

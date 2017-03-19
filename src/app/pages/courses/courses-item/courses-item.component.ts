@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
 
 import { ICourse } from '../../../core/entities';
 
@@ -10,5 +10,12 @@ import { ICourse } from '../../../core/entities';
 export class CoursesItemComponent {
 	@Input('course')
 	course: ICourse;
-	
+
+	@Output()
+	delete: EventEmitter<string> = new EventEmitter<string>();
+
+	deleteClick(): void {
+		this.delete.emit(this.course.id);
+	}
+
 }

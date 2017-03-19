@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+
 import {
 	NgModule,
 	ApplicationRef
@@ -40,12 +42,13 @@ import { LoginModule } from './pages/login';
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
-		RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
+		HttpModule,
 		HeaderModule,
 		FooterModule,
 		CourcesModule,
 		CourseDetailModule,
-		LoginModule
+		LoginModule,
+		RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
 		ENV_PROVIDERS,
