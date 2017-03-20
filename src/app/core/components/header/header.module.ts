@@ -1,5 +1,10 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
+import {
+	AuthorizationService,
+} from '../../services';
 
 import { HeaderComponent } from './header.component';
 import { UserInfoComponent } from './user-info/user-info.component';
@@ -9,8 +14,12 @@ import { UserInfoComponent } from './user-info/user-info.component';
 		HeaderComponent,
 		UserInfoComponent,
 	],
-	imports: [RouterModule],
-	exports: [HeaderComponent]
+	imports: [RouterModule, CommonModule],
+	exports: [HeaderComponent],
+
+	providers: [
+		AuthorizationService,
+	]
 })
 export class HeaderModule {
 	constructor() {

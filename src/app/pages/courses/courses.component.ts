@@ -1,7 +1,7 @@
-import { log } from 'util';
-import { Component, ViewEncapsulation, OnInit } '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ViewContainerRef } from '@angular/core';
 
 import { ICourse } from '../../core/entities';
+import { CoursesService } from '../../core/services';
 
 @Component({
 	selector: 'courses',
@@ -16,7 +16,9 @@ export class CoursesComponet implements OnInit {
 
 	private courses: ICourse[];
 
-	constructor() {
+	constructor(
+		private coursesService: CoursesService,
+	) {
 		this.courses = [];
 	}
 
@@ -26,7 +28,9 @@ export class CoursesComponet implements OnInit {
 	}
 
 	onDelete(id) {
-		console.log(`delete: ${id}`);
+		if (confirm('Do you really want to delete this course?')) {
+			this.coursesService.remove(id);
+		}
 	}
 
 	onAddCourse() {
@@ -37,19 +41,7 @@ export class CoursesComponet implements OnInit {
 	//region lifecycle hooks
 	ngOnInit() {
 		console.log('inInit');
-		this.courses = [{
-			id: '1',
-			title: 'test meating',
-			duration: 30,
-			date: new Date(),
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac finibus nibh, in imperdiet odio. Cras eu turpis vitae nisl bibendum tempor. Nunc ipsum neque, euismod a dolor in, viverra suscipit nunc. Duis dignissim mi at scelerisque sodales. In molestie diam vel tincidunt viverra. Donec ac sodales mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-		}, {
-			id: '2',
-			title: 'test mentoring',
-			duration: 120,
-			date: new Date(),
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac finibus nibh, in imperdiet odio. Cras eu turpis vitae nisl bibendum tempor. Nunc ipsum neque, euismod a dolor in, viverra suscipit nunc. Duis dignissim mi at scelerisque sodales. In molestie diam vel tincidunt viverra. Donec ac sodales mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-		}];	
+		this.courses = this.coursesService.getAll();
 	}
 	//endregion
 }

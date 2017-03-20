@@ -1,3 +1,10 @@
-<div>
-    login/logoff...
+<div class="user-info">
+	<div *ngIf="isAuthenticated">
+		logoff
+	</div>
+	<div *ngIf="!isAuthenticated">
+		<a [routerLink]="['/login']">
+			login
+		</a>
+	</div>
 </div>
