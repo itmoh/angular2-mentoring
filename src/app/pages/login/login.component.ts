@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthorizationService } from '../../core/services';
+import { Router } from '@angular/router';
+import { LoginInfo } from '../../core/entities/loginInfo'
 
 @Component({
 	selector: 'login',
@@ -10,12 +12,17 @@ import { AuthorizationService } from '../../core/services';
 	],
 })
 export class LoginComponent {
+	private model;
+
 	constructor(
-		private authorizationService: AuthorizationService
+		private authorizationService: AuthorizationService,
+		private router: Router,
 	) {
+		this.model = new LoginInfo(null, null);
 	}
 
-	onLoginClick() {
-		this.authorizationService.login('test', 'test');
+	onSubmit() {
+		this.authorizationService.login(this.model.login, this.model.password);
+		this.router.navigate(['/']);
 	}
 }

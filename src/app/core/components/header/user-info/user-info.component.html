@@ -1,6 +1,7 @@
 <div class="user-info">
 	<div *ngIf="isAuthenticated">
-		logoff
+		<span class="user-info__name">{{userInfo}}</span>
+		<a href="#" (click)="logout()">logout</a>
 	</div>
 	<div *ngIf="!isAuthenticated">
 		<a [routerLink]="['/login']">
